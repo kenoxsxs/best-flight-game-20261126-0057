@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dusk Runner — Deliver Before Dark</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game"></canvas>
+  <canvas id="overlay"></canvas>
+
+  <div id="title-screen" class="screen">
+    <div class="panel">
+      <h1>DUSK RUNNER</h1>
+      <p class="subtitle">DELIVER BEFORE DARK — A COURIER'S RACE WITH THE SUN</p>
+      <p class="tagline">You are a courier pilot in a mountain archipelago at sunset. Fly the Kestrel (callsign DUSK-1) and deliver the supplies to the remote outposts before the light is gone. The sun is your timer — the sky darkens as the clock runs out.</p>
+      <div class="missions">
+        <button data-mission="rings" class="mission-btn picked">
+          <strong>RACE THE LIGHT</strong><span>8 delivery rings before dark</span>
+        </button>
+        <button data-mission="rescue" class="mission-btn">
+          <strong>LAST CALL</strong><span>Find the hiker in the fog</span>
+        </button>
+        <button data-mission="cargo" class="mission-btn">
+          <strong>HEAVY LOAD</strong><span>Medical supplies, heavy lift</span>
+        </button>
+      </div>
+      <button id="launch-btn">LAUNCH SORTIE [SPACE]</button>
+      <p class="controls">ARROWS / WASD — pitch &amp; bank &nbsp;•&nbsp; SHIFT / CTRL — throttle &nbsp;•&nbsp; SPACE — airbrake<br>C — cockpit &nbsp;•&nbsp; P — pause &nbsp;•&nbsp; R — restart &nbsp;•&nbsp; M — mute &nbsp;•&nbsp; MOUSE — hold to steer</p>
+    </div>
+  </div>
+
+  <div id="pause-screen" class="screen hidden">
+    <div class="panel">
+      <h1>PAUSED</h1>
+      <p class="tagline">The valley waits. The sun does not.</p>
+      <button id="resume-btn">RESUME [P]</button>
+      <button class="restart-btn">RESTART SORTIE [R]</button>
+    </div>
+  </div>
+
+  <div id="end-screen" class="screen hidden">
+    <div class="panel">
+      <h1 id="end-title">SORTIE OVER</h1>
+      <p id="end-reason" class="tagline"></p>
+      <p id="end-score" class="score"></p>
+      <button class="restart-btn">FLY AGAIN [R]</button>
+    </div>
+  </div>
+</div>
+<script src="./vendor/three.min.js"></script>
+<script type="module" src="./src/boot.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* Dusk Runner — Sunset Sortie. The canvases fill the window; the HUD overlay
+   sits over the WebGL view; the screens are dark glass over the live scene. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #1c1226; }
+#app { position: fixed; inset: 0; }
+#game, #overlay { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#overlay { pointer-events: none; }
+
+.screen {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, rgba(20, 12, 32, 0.55) 0%, rgba(20, 12, 32, 0.25) 45%, rgba(20, 12, 32, 0.72) 100%);
+  z-index: 10;
+}
+.screen.hidden { display: none; }
+.panel { text-align: center; max-width: 720px; padding: 32px 28px; }
+h1 {
+  font-family: system-ui, sans-serif; font-size: 64px; font-weight: 900; letter-spacing: 6px;
+  color: #ffb43c; text-shadow: 0 0 24px rgba(255, 122, 61, 0.65), 0 3px 0 #2b1b4d;
+}
+.subtitle {
+  font-family: system-ui, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 4px;
+  color: #00f0ff; margin-top: 6px;
+}
+.tagline { font-family: system-ui, sans-serif; font-size: 15px; color: #ffe8c9; margin-top: 14px; line-height: 1.5; }
+.score { font-family: system-ui, sans-serif; font-size: 26px; font-weight: 900; color: #00f0ff; margin-top: 12px; }
+
+.missions { display: flex; gap: 12px; margin: 26px 0 20px; }
+.mission-btn {
+  flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 14px 10px;
+  font-family: system-ui, sans-serif; color: #ffe8c9; background: rgba(14, 10, 24, 0.72);
+  border: 2px solid #3a2b5e; border-radius: 8px; cursor: pointer; text-align: center;
+}
+.mission-btn strong { font-size: 15px; letter-spacing: 1px; color: #00f0ff; }
+.mission-btn span { font-size: 12px; color: #c9b8d9; }
+.mission-btn:hover { border-color: #00f0ff; }
+.mission-btn.picked { border-color: #ffb43c; background: rgba(60, 35, 15, 0.8); }
+.mission-btn.picked strong { color: #ffb43c; }
+
+button#launch-btn, button#resume-btn, button.restart-btn {
+  font-family: system-ui, sans-serif; font-size: 19px; font-weight: 900; letter-spacing: 2px;
+  color: #0e0a18; background: #ffb43c; border: none; border-radius: 8px;
+  padding: 14px 34px; margin-top: 8px; cursor: pointer;
+}
+button#launch-btn:hover, button#resume-btn:hover, button.restart-btn:hover { background: #ffcf6e; }
+button.restart-btn { background: transparent; color: #00f0ff; border: 2px solid #00f0ff; font-size: 15px; margin-left: 10px; }
+button.restart-btn:hover { background: rgba(0, 240, 255, 0.15); }
+.controls { font-family: system-ui, sans-serif; font-size: 12px; color: #c9b8d9; margin-top: 20px; line-height: 1.7; }
